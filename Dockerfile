@@ -1,13 +1,13 @@
 FROM node:0.10.38
-MAINTAINER Nathan LeClaire <nathan@docker.com>
+LABEL maintainer "Sebastian Tabares <sytabaresa@gmail.com>" 
 
 ADD . /app
 WORKDIR /app
 RUN npm install
 RUN apt-get update
-RUN apt-get install -y vim
-RUN useradd -d /home/term -m -s /bin/bash term
-RUN echo 'term:term' | chpasswd
+RUN apt-get install -y vim nano asciinema
+RUN useradd -d /home/glud -m -s /bin/bash glud
+RUN echo 'glud:nomelase' | chpasswd
 
 EXPOSE 3000
 
